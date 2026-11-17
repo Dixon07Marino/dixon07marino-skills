@@ -9,6 +9,7 @@ Los PRs funcionan con GitHub (`gh`) y con Azure DevOps (`az repos pr`). La herra
 | Skill | Para qué |
 |---|---|
 | [`/poteto-mode`](./skills/poteto-mode/SKILL.md) | Punto de entrada. Elige un playbook, lo sigue y verifica con evidencia real. |
+| [`/sdd`](./skills/sdd/SKILL.md) | Trabaja un tema de `sdd/` por fases: lista, avanza, crea y cierra. |
 | [`/architect`](./skills/architect/SKILL.md) | Fija tipos, firmas y forma de módulos antes de escribir código. |
 | [`/how`](./skills/how/SKILL.md) | Explica cómo funciona el código hoy o dónde debe vivir el nuevo. |
 | [`/why`](./skills/why/SKILL.md) | Explica por qué el código es como es: decisiones, regresiones, origen de un número. |
