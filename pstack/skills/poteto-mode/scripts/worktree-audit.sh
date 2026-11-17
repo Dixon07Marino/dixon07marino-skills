@@ -56,13 +56,13 @@ else
 fi
 
 # PR state by branch, fetched once as [{number, state, head}] with a lowercase
-# state. Origin when its CLI can read this repo's PRs, otherwise gh. Empty when
-# neither can.
+# state (open, merged, closed). gh for GitHub remotes, az for Azure DevOps
+# remotes. Empty when neither can.
 prs=$(mktemp)
-if command -v origin >/dev/null 2>&1 \
-	&& raw=$(origin pr list --author "@me" --state all --limit 1000 \
-		--json number,status,headRef 2>/dev/null); then
-	printf '%s' "$raw" | jq '[.[] | {number, state: .status, head: .headRef}]' > "$prs" 2>/dev/null
+remote_url=$(git -C "$main_wt" remote get-url origin 2>/dev/null)
+if printf '%s' "$remote_url" | grep -qE 'dev\.azure\.com|visualstudio\.com' \
+	&& raw=$(az repos pr list --status all --top 1000 -o json 2>/dev/null); then
+	printf '%s' "$raw" | jq '[.[] | {number: .pullRequestId, state: ({active:"open",completed:"merged",abandoned:"closed"}[.status] // .status), head: (.sourceRefName | sub("^refs/heads/"; ""))}]' > "$prs" 2>/dev/null
 elif raw=$(gh pr list --author "@me" --state all --limit 1000 \
 	--json number,state,headRefName 2>/dev/null); then
 	printf '%s' "$raw" | jq '[.[] | {number, state: (.state | ascii_downcase), head: .headRefName}]' > "$prs" 2>/dev/null

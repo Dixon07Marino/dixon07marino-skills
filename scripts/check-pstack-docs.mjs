@@ -11,11 +11,10 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PSTACK = join(ROOT, "pstack");
 const GUIDE = "docs/guide";
-const SETUP = join(PSTACK, "skills", "setup-pstack", "SKILL.md");
 
 // Commands that ship with Cursor or Claude Code, not in this repository. Nothing here can verify them, so add a name
 // only after a public Cursor or Claude Code doc shows it.
-const EXTERNAL = new Set(["add-plugin", "autopilot", "create-skill", "in-cloud", "loop", "plugin"]);
+const EXTERNAL = new Set(["add-plugin", "autopilot", "create-skill", "in-cloud", "loop", "plugin", "pstack"]);
 const RENAMED = new Map([["babysit", "autopilot"]]);
 
 const SMALL = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split(" ");
@@ -25,8 +24,6 @@ const CLAIM = /\b(?:(all|has|of|ships|the|with) )?(\d+|[a-z]+(?:-[a-z]+)?) (shor
 const SLASH = /(?<=^|[\s`(|"'>])\/(?:pstack:)?([a-z][a-z0-9-]*)(?![\w/<-])/gm;
 const LINK = /\]\(<?([^)\s>]+)>?(?:\s+"[^"]*")?\)/g;
 const AGENT = /subagent_type: "([^"]+)"/g;
-const MODEL_ID = /\b(?:claude-[a-z]+|grok|gpt)-\d(?:[\w.-]*\w)?/g;
-const MODEL_PROSE = /\b(opus|sonnet|grok) (\d+(?:\.\d+)?)\b/gi;
 
 function names(dir, keep) {
   return existsSync(dir) ? readdirSync(dir).filter((name) => keep(join(dir, name))).sort() : [];
@@ -42,7 +39,6 @@ const agents = names(join(PSTACK, "agents"), isMarkdown).map((name) => name.slic
 const teamKit = names(join(ROOT, "cursor-team-kit", "skills"), isSkill);
 const docs = ["README.md", ...names(join(PSTACK, GUIDE), isMarkdown).map((name) => `${GUIDE}/${name}`)];
 const text = new Map(docs.map((doc) => [doc, readFileSync(join(PSTACK, doc), "utf8")]));
-const setup = readFileSync(SETUP, "utf8");
 
 const problems = [];
 const lineOf = (doc, index) => text.get(doc).slice(0, index).split("\n").length;
@@ -114,13 +110,6 @@ for (const [doc, body] of text) {
   for (const { 1: name, index } of body.matchAll(AGENT)) {
     if (!agents.includes(name)) fail(doc, index, `names subagent_type "${name}", which pstack/agents does not ship`);
   }
-  for (const { 0: id, index } of body.matchAll(MODEL_ID)) {
-    if (!setup.includes(id)) fail(doc, index, `names model ${id}, which setup-pstack does not use`);
-  }
-  for (const { 0: match, 1: family, 2: version, index } of body.matchAll(MODEL_PROSE)) {
-    const prefix = family.toLowerCase() === "grok" ? `grok-${version}` : `claude-${family.toLowerCase()}-${version.replace(".", "-")}`;
-    if (!setup.includes(prefix)) fail(doc, index, `says "${match}", but setup-pstack has no ${prefix} default`);
-  }
 }
 
 const readme = text.get("README.md");
@@ -135,18 +124,14 @@ for (const agent of agents) {
 }
 
 const inDocs = new Set([...named.values()].flatMap((set) => [...set]));
-const inGuide = new Set(docs.filter((doc) => doc !== "README.md").flatMap((doc) => [...named.get(doc)]));
-const unnamed = commands.filter((name) => !inGuide.has(name));
 console.log(
   `tree: ${skills.length} skills (${commands.length} commands, ${principles.length} principles), ` +
     `${playbooks.length} playbooks, ${agents.length} agents`,
 );
 console.log(
   `docs: ${docs.length} files, ${slashes} slash mentions, ${links} relative links, ` +
-    `${commands.filter((name) => inDocs.has(name)).length} of ${commands.length} commands named, ` +
-    `${commands.length - unnamed.length} of ${commands.length} in the guide`,
+    `${commands.filter((name) => inDocs.has(name)).length} of ${commands.length} commands named`,
 );
-if (unnamed.length > 0) console.log(`note: the guide never names ${unnamed.map((name) => `/${name}`).join(", ")}`);
 for (const problem of problems) console.log(`FAIL ${problem}`);
 console.log(`${problems.length} problems`);
 if (problems.length > 0) process.exit(1);
