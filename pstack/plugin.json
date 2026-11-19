@@ -1,20 +1,21 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "pstack",
-  "version": "0.15.43",
-  "description": "Fork personal de pstack: skills de bajo consumo de tokens y alta calidad de software. Sin subagentes salvo que hagan falta.",
+  "name": "dx",
+  "version": "1.0.0",
+  "description": "Personal skill set for writing less, higher-quality code. Based on pstack by Lauren Tan (MIT). Low-token, no subagents by default.",
   "author": {
-    "name": "Lauren Tan"
+    "name": "Dixon07Marino"
   },
-  "homepage": "https://github.com/cursor/plugins/tree/main/pstack",
-  "repository": "https://github.com/cursor/plugins",
+  "homepage": "https://github.com/Dixon07Marino/dixon07marino-skills/tree/main/pstack",
+  "repository": "https://github.com/Dixon07Marino/dixon07marino-skills",
   "license": "MIT",
   "keywords": [
-    "pstack",
     "poteto-mode",
     "workflow",
     "principles",
     "agent-style",
-    "unslop"
+    "unslop",
+    "dx",
+    "pstack-based"
   ]
 }

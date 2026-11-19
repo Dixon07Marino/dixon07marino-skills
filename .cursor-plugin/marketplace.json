@@ -1,17 +1,13 @@
 {
-  "name": "cursor-plugins",
+  "name": "dixon07marino-skills",
   "owner": {
-    "name": "Cursor",
-    "email": "plugins@cursor.com"
-  },
-  "metadata": {
-    "description": "Official Cursor plugin marketplace: developer tools, framework rules, MCP integrations, and agent skills"
+    "name": "Dixon07Marino"
   },
   "plugins": [
     {
-      "name": "pstack",
+      "name": "dx",
       "source": "pstack",
-      "description": "if you want to go fast, go deep first. pstack helps you write less, but higher quality code. rigorous agent workflows you can parallelize with confidence."
+      "description": "Personal skill set for writing less, higher-quality code. Based on pstack by Lauren Tan (MIT). Low-token, no subagents by default."
     }
   ]
 }

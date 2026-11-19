@@ -14,14 +14,14 @@ const GUIDE = "docs/guide";
 
 // Commands that ship with Cursor or Claude Code, not in this repository. Nothing here can verify them, so add a name
 // only after a public Cursor or Claude Code doc shows it.
-const EXTERNAL = new Set(["add-plugin", "autopilot", "create-skill", "in-cloud", "loop", "plugin", "pstack"]);
+const EXTERNAL = new Set(["add-plugin", "autopilot", "create-skill", "in-cloud", "loop", "plugin", "pstack", "dx"]);
 const RENAMED = new Map([["babysit", "autopilot"]]);
 
 const SMALL = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split(" ");
 const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
 // "The twenty-three playbooks" claims the whole set. "Three playbooks scale it up" names a subset, so it is not checked.
 const CLAIM = /\b(?:(all|has|of|ships|the|with) )?(\d+|[a-z]+(?:-[a-z]+)?) (short )?(skills|principles|playbooks|agents)\b/gi;
-const SLASH = /(?<=^|[\s`(|"'>])\/(?:pstack:)?([a-z][a-z0-9-]*)(?![\w/<-])/gm;
+const SLASH = /(?<=^|[\s`(|"'>])\/(?:dx:)?([a-z][a-z0-9-]*)(?![\w/<-])/gm;
 const LINK = /\]\(<?([^)\s>]+)>?(?:\s+"[^"]*")?\)/g;
 const AGENT = /subagent_type: "([^"]+)"/g;
 

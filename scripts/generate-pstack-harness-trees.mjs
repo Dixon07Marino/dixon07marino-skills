@@ -13,7 +13,7 @@ const TREE = "claude-code";
 const ADAPTER = "docs/harness/claude-code.md";
 const MANIFESTS = ["plugin.json", ".claude-plugin/plugin.json"];
 const COMMAND = "node scripts/generate-pstack-harness-trees.mjs";
-const GITHUB = "https://github.com/cursor/plugins";
+const GITHUB = "https://github.com/Dixon07Marino/dixon07marino-skills";
 const LINK = /\]\(([^)\s]+)\)/g;
 const README = `# pstack harness tree
 

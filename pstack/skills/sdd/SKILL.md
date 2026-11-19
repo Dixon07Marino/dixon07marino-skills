@@ -14,9 +14,9 @@ Lista los temas: para cada `sdd/*/README.md` (salta `_plantilla`) extrae con `rg
 ## `/sdd <tema>`: avanzar
 1. Lee `README.md` del tema y su `plan.md`. Busca la **frontera**: las tareas sin terminar cuyas `Bloqueada por` ya están hechas. Toma la primera de la fase activa. Lee solo esa fase (`rg -n "^#+ |\[ \]"`; los planes pueden ser listas con casillas o tablas).
 2. De `spec.md` lee únicamente los criterios y reglas que esa fase cita, con `rg -n "CA<n>|R<n>"`. Si la fase depende de una decisión que figura en "Preguntas abiertas", detente y pregúntala; no la asumas.
-3. Haz **una tarea**, respetando `CLAUDE.md` y `.claude/rules/`. Si toca código y el plan fija una costura de prueba, trabaja test-first con la skill `tdd`: una prueba que falla en esa costura, el mínimo código para pasarla, repetir. La prueba afirma comportamiento observable, no detalles internos. Corre la verificación de la tarea, o el test del módulo tocado si no la trae. Muestra el resultado real.
+3. Haz **una tarea**, respetando `CLAUDE.md` y `.claude/rules/`. Si toca código y el plan fija una costura de prueba, trabaja test-first (con la skill `tdd` si está disponible): una prueba que falla en esa costura, el mínimo código para pasarla, repetir. La prueba afirma comportamiento observable, no detalles internos. Corre la verificación de la tarea, o el test del módulo tocado si no la trae. Muestra el resultado real.
 4. Con la verificación en verde, marca la casilla en `plan.md`. Si falla, no la marques: corrige o informa.
-5. Al terminar la última tarea de la fase: actualiza `Estado` y `Siguiente paso` en `README.md`, resume en 3 líneas qué quedó hecho y propone rama (`feat/<tema>-<fase>`), commit y PR. Sugiere correr `code-review` contra `sdd/<tema>/spec.md` antes del PR. No hagas commit ni push sin que el usuario lo pida.
+5. Al terminar la última tarea de la fase: actualiza `Estado` y `Siguiente paso` en `README.md`, resume en 3 líneas qué quedó hecho y propone rama (`feat/<tema>-<fase>`), commit y PR. Sugiere revisar el diff contra `sdd/<tema>/spec.md` antes del PR (con la skill `code-review` si está disponible). No hagas commit ni push sin que el usuario lo pida.
 6. Una tarea por invocación, salvo que el usuario pida más. Si la tarea es mayor de lo previsto, divídela en `plan.md` antes de seguir.
 
 ## `/sdd nuevo <tema>`
@@ -38,7 +38,7 @@ Lista los temas: para cada `sdd/*/README.md` (salta `_plantilla`) extrae con `rg
 7. Actualiza `README.md` con estado y siguiente paso.
 
 ## `/sdd cerrar <tema>`
-Comprueba que todas las casillas de `plan.md` estén marcadas y que lo vigente de `spec` y `diseno` ya esté resumido en `docs/`; si falta, propón el resumen. Si nunca se corrió `code-review` contra la spec, sugiérelo. Pon `Estado: cerrado` en el `README.md`.
+Comprueba que todas las casillas de `plan.md` estén marcadas y que lo vigente de `spec` y `diseno` ya esté resumido en `docs/`; si falta, propón el resumen. Si el diff nunca se revisó contra la spec, sugiérelo. Pon `Estado: cerrado` en el `README.md`.
 
 ## Reglas
 - Un criterio de aceptación sin forma de verificarse no es un criterio: reescríbelo.

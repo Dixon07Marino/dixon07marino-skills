@@ -1,20 +1,29 @@
-# plugins (personal pstack fork)
+# dixon07marino-skills
 
-Personal fork of [cursor/plugins](https://github.com/cursor/plugins), pruned to [pstack](pstack/) by Lauren Tan (MIT), plus Matt Pocock's skills vendored in [mattpocock/](mattpocock/) (MIT, see `mattpocock/UPSTREAM.md`).
+Personal skill marketplace for Claude Code. Two plugins:
 
-- `pstack/`: source of truth for skills, agents, and docs (Cursor reads this directly).
-- `harness/pstack/claude-code/`: generated Claude Code tree. Do not edit by hand; run `node scripts/generate-pstack-harness-trees.mjs` after changing `pstack/`.
-- `mattpocock/`: second plugin, `mattpocock-skills`. Copied unmodified from upstream; curate it by deleting skills.
-- `scripts/validate-plugins.mjs`: validates manifests.
+| Plugin | Commands | What it is |
+|---|---|---|
+| `dx` | `/dx:<skill>` | My skill set, based on [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan (MIT), pruned and extended. Includes `/dx:sdd`. |
+| `mattpocock-skills` | `/mattpocock-skills:<skill>` | A trimmed copy of [mattpocock/skills](https://github.com/mattpocock/skills) (MIT). See `mattpocock/UPSTREAM.md`. |
 
-## Install in Claude Code
+## Install
 
 ```
-/plugin marketplace add Dixon07Marino/plugins
-/plugin install pstack@cursor-plugins
-/plugin install mattpocock-skills@cursor-plugins
+claude plugin marketplace add Dixon07Marino/dixon07marino-skills
+claude plugin install dx@dixon07marino-skills
+claude plugin install mattpocock-skills@dixon07marino-skills
 ```
+
+Then run `/reload-plugins` inside Claude Code. Install both plugins: `dx:sdd` calls `tdd`, `grilling` and `code-review` from the Matt plugin.
+
+## Layout
+
+- `pstack/`: source of truth for the `dx` plugin (skills, agents, docs).
+- `harness/pstack/claude-code/`: generated Claude Code tree that the marketplace installs. Do not edit by hand. After changing `pstack/`, run `node scripts/generate-pstack-harness-trees.mjs`.
+- `mattpocock/`: the second plugin.
+- `scripts/`: validation (`validate-plugins.mjs`, `check-pstack-docs.mjs`) and the tree generator.
 
 ## Syncing with upstream
 
-`git fetch upstream && git merge upstream/main`. Re-delete any non-pstack directories that git reports as modify/delete conflicts.
+`git fetch upstream && git merge upstream/main`. Upstream is `cursor/plugins`. Re-delete any directories git reports as modify/delete conflicts.
