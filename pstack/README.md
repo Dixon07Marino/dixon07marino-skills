@@ -13,13 +13,12 @@ Los PRs funcionan con GitHub (`gh`) y con Azure DevOps (`az repos pr`). La herra
 | [`/architect`](./skills/architect/SKILL.md) | Fija tipos, firmas y forma de módulos antes de escribir código. |
 | [`/how`](./skills/how/SKILL.md) | Explica cómo funciona el código hoy o dónde debe vivir el nuevo. |
 | [`/why`](./skills/why/SKILL.md) | Explica por qué el código es como es: decisiones, regresiones, origen de un número. |
-| [`/teach`](./skills/teach/SKILL.md) | Explica un cambio o subsistema en lenguaje claro. |
+| [`/explain-work`](./skills/explain-work/SKILL.md) | Explica un cambio o subsistema ya hecho en lenguaje claro. Para aprender conceptos usa teach, de Matt. |
 | [`/recall`](./skills/recall/SKILL.md) | Reconstruye contexto de tus chats recientes sobre un tema. |
 | [`/ketchup`](./skills/ketchup/SKILL.md) | Resumen de lo ocurrido en este chat desde tu último mensaje. |
 | [`/bro`](./skills/bro/SKILL.md) | Repite la última respuesta en palabras simples. |
 | [`/in-your-own-words`](./skills/in-your-own-words/SKILL.md) | Confirma que el agente entendió tu objetivo antes de empezar. |
 | [`/sharpen`](./skills/sharpen/SKILL.md) | Reescribe un prompt para hacerlo más profundo, sin hacerlo más grande. |
-| [`/tdd`](./skills/tdd/SKILL.md) | Corrige bugs test-first cuando existe un test local barato. |
 | [`/typescript-best-practices`](./skills/typescript-best-practices/SKILL.md) | Reglas para `.ts` y `.tsx`. |
 | [`/no-comments`](./skills/no-comments/SKILL.md) | Quita comentarios que no aportan antes de la revisión. |
 | [`/unslop`](./skills/unslop/SKILL.md) | Quita marcas de texto generado por IA. |
@@ -29,7 +28,6 @@ Los PRs funcionan con GitHub (`gh`) y con Azure DevOps (`az repos pr`). La herra
 | [`/maintain-verification-skill`](./skills/maintain-verification-skill/SKILL.md) | Mantiene al día esa skill y su mapa de features. |
 | [`/create-formal-verification-skill`](./skills/create-formal-verification-skill/SKILL.md) | Verifica formalmente una propiedad crítica del código. |
 | [`/maintain-formal-verification-skill`](./skills/maintain-formal-verification-skill/SKILL.md) | Mantiene al día la verificación formal tras cambios. |
-| [`/statechart`](./skills/statechart/SKILL.md) | Diagrama de estados verificado con un modelo TLA+. |
 | [`/show-me-your-work`](./skills/show-me-your-work/SKILL.md) | Bitácora de decisiones en trabajo largo o desatendido. |
 | [`/automate-me`](./skills/automate-me/SKILL.md) | Genera un modo personal a partir de tu historial. |
 | [`/reflect`](./skills/reflect/SKILL.md) | Convierte lo aprendido en una tarea en ediciones de skills. |
@@ -77,7 +75,6 @@ Reglas de una línea que `poteto-mode` cita cuando aplican.
 | [foundational-thinking](./skills/principle-foundational-thinking/SKILL.md) | Estructuras de datos y tipos primero. |
 | [laziness-protocol](./skills/principle-laziness-protocol/SKILL.md) | El cambio más pequeño que resuelve el problema. |
 | [make-operations-idempotent](./skills/principle-make-operations-idempotent/SKILL.md) | Mismo estado final tras fallos y reintentos. |
-| [migrate-callers-then-delete-legacy-apis](./skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md) | Migra llamadores y borra la API vieja en la misma ola. |
 | [minimize-reader-load](./skills/principle-minimize-reader-load/SKILL.md) | Menos capas y menos estado oculto. |
 | [model-the-domain](./skills/principle-model-the-domain/SKILL.md) | Modela el dominio en una estructura, no en condicionales dispersos. |
 | [prove-it-works](./skills/principle-prove-it-works/SKILL.md) | Verifica contra el artefacto real antes de declarar listo. |
