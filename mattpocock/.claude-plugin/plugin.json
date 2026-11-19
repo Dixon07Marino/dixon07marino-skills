@@ -1,6 +1,6 @@
 {
   "name": "mattpocock-skills",
-  "version": "1.3.2-dx.1",
+  "version": "1.3.2-dx.2",
   "description": "Matt Pocock's agent skills, trimmed for this fork: grilling, TDD, bug diagnosis, code review, domain modelling. Ticket flow removed.",
   "author": {
     "name": "Matt Pocock",

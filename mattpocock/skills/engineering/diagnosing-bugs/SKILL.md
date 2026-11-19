@@ -48,7 +48,7 @@ A 30-second flaky loop is barely better than no loop; a 2-second deterministic o
 
 ### Non-deterministic bugs
 
-The goal is not a clean repro but a **higher reproduction rate**. Loop the trigger 100×, parallelise, add stress, narrow timing windows, inject sleeps. A 50%-flake bug is debuggable; 1% is not, so keep raising the rate until it's debuggable.
+The goal is not a clean repro but a **higher reproduction rate**. Loop the trigger up to 10×, with at most 2 workers in parallel and `nice -n 19`. Narrow timing windows and inject sleeps. To add stress, throttle the CPU of the thing under test instead of loading the machine. If the project's instructions set lower limits (workers, repetitions, CPU), those win. If the rate is still too low, stop and ask before going higher. A 50%-flake bug is debuggable; 1% is not, so keep raising the rate until it's debuggable.
 
 ### When you genuinely cannot build a loop
 

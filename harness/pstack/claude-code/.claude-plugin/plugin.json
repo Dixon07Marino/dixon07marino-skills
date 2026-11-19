@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Personal skill set for writing less, higher-quality code. Based on pstack by Lauren Tan (MIT). Low-token, no subagents by default.",
   "author": {
     "name": "Dixon07Marino"
