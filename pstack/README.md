@@ -33,6 +33,27 @@ Los PRs funcionan con GitHub (`gh`) y con Azure DevOps (`az repos pr`). La herra
 | [`/reflect`](./skills/reflect/SKILL.md) | Convierte lo aprendido en una tarea en ediciones de skills. |
 | [`/correct`](./skills/correct/SKILL.md) | Evita que los agentes repitan los mismos errores en este repo. |
 
+## Skills de Matt Pocock
+
+Copiadas de [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, texto en `LICENSE`). Cambios locales en `NOTICES.md` de la raíz del repo.
+
+| Skill | Qué hace |
+|---|---|
+| [`/grilling`](./skills/grilling/SKILL.md) | Te interroga por rondas para poner a prueba un plan o una idea. |
+| [`/grill-me`](./skills/grill-me/SKILL.md) | Lanza esa entrevista a mano. |
+| [`/tdd`](./skills/tdd/SKILL.md) | Rojo, verde, refactor: prueba que falla, código mínimo, repetir. |
+| [`/diagnosing-bugs`](./skills/diagnosing-bugs/SKILL.md) | Método para bugs difíciles: primero un bucle que falle justo con el bug. |
+| [`/code-review`](./skills/code-review/SKILL.md) | Revisión en dos ejes (estándares y spec). Manual: manda el `/code-review` nativo. |
+| [`/codebase-design`](./skills/codebase-design/SKILL.md) | Vocabulario de diseño: módulo profundo, interfaz, costura. |
+| [`/domain-modeling`](./skills/domain-modeling/SKILL.md) | Glosario y decisiones (ADR) del proyecto. |
+| [`/prototype`](./skills/prototype/SKILL.md) | Prototipo desechable para responder una duda de diseño. |
+| [`/improve-codebase-architecture`](./skills/improve-codebase-architecture/SKILL.md) | Informe HTML de oportunidades de mejora y entrevista sobre una. |
+| [`/pr`](./skills/pr/SKILL.md) | Plantilla para el cuerpo de un PR: Summary, Evidence, Merge Danger. |
+| [`/retro`](./skills/retro/SKILL.md) | Retrospectiva de una sesión de código. |
+| [`/teach`](./skills/teach/SKILL.md) | Te enseña un concepto nuevo dentro de tu workspace. |
+| [`/wizard`](./skills/wizard/SKILL.md) | Genera un asistente en bash para pasos que solo un humano puede hacer. |
+| [`/to-questionnaire`](./skills/to-questionnaire/SKILL.md) | Convierte una decisión que no puedes responder en un cuestionario para otra persona. |
+
 ## Playbooks
 
 Viven dentro de [`/poteto-mode`](./skills/poteto-mode/SKILL.md). Describir la tarea elige uno.

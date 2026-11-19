@@ -8,11 +8,6 @@
       "name": "dx",
       "source": "./harness/pstack/claude-code",
       "description": "Personal skill set for writing less, higher-quality code. Based on pstack by Lauren Tan (MIT). Low-token, no subagents by default."
-    },
-    {
-      "name": "mattpocock-skills",
-      "source": "./mattpocock",
-      "description": "Matt Pocock agent skills: grilling, spec and ticket flows, TDD, code review, domain modelling."
     }
   ]
 }
